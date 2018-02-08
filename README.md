@@ -16,8 +16,7 @@ https://pandas.pydata.org/pandas-docs/stable/missing_data.html
 
 
 
-# In Unit 3 Lesson 3 Assignment 2, ln 4, 
-# Plotting the variable rand1 against norm in qqplots.
+3. In Unit 3 Lesson 3 Assignment 2, ln 4, plotting the variable rand1 against norm in qqplots:
 plt.plot(norm, rand1, "o") 
 plt.show() 
 
