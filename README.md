@@ -20,4 +20,4 @@ https://pandas.pydata.org/pandas-docs/stable/missing_data.html
 plt.plot(norm, rand1, "o") 
 plt.show() 
 
-# What does the "o" do?
+What does the "o" do?
