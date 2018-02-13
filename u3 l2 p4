@@ -1,0 +1,16 @@
+Probability of flipping a coin HTTH
+P(H ∩ T ∩ T ∩ H) = 1/2 1/2 1/2 * 1/2 = 1/16
+
+Probability of flipping a coin HHHH
+P(H ∩ H ∩ H ∩ H) = 1/2 1/2 1/2 * 1/2 = 1/16
+
+Probability of flipping a coin TTHH
+P(T ∩ T ∩ H ∩ H) = 1/2 1/2 1/2 * 1/2 = 1/16
+
+Probabiliy of not choosing a man
+P(not man) = 45/45 - 21/45 = 24/45
+
+Probability Bernice gets in a plane crash
+P(crash) = 0.10 * 0.005 = .0005
+
+The conclusion assumes that the sample size is representative of the users of the company website. However, there needs to be a distinction between the users who chose to complete the survey, and those that did not.
