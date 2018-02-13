@@ -1,0 +1,93 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+%matplotlib inline
+
+pop1 = np.random.binomial(10, 0.2, 10000)
+pop2 = np.random.binomial(10, 0.5, 10000)
+
+sample1 = np.random.choice(pop1, 100, replace=True)
+sample2 = np.random.choice(pop2, 100, replace=True)
+
+def drillstats(group1, group2):
+    print('sample1 mean: ', np.mean(group1))
+    print('sample2 mean: ', np.mean(group2))
+    print('sample1 stdev: ', np.std(group1))
+    print('sample2 stdev: ', np.std(group2))
+    
+    
+drillstats(sample1, sample2)
+sample1 mean:  2.03
+sample2 mean:  4.39
+sample1 stdev:  1.26059509756
+sample2 stdev:  1.40637832748
+
+
+1 - Increase the size of the samples from 100 to 1000, then recalculate. Repeat again, decreasing size of samples to 20. What values change, what remains the same?
+
+sample1000 = np.random.choice(pop1, 1000, replace=True)
+sample2000 = np.random.choice(pop2, 1000, replace=True)
+
+sample10 = np.random.choice(pop1, 20, replace=True)
+sample20 = np.random.choice(pop2, 20, replace=True)
+# I think for the 1000 sample, the mean and standard deviation will start to
+# resemble the population's.
+# For the 20-count sample, the mean and standard deviation might be similar 
+# to the population's, but more often will appear less so.
+
+drillstats(sample1000, sample2000)
+sample1 mean:  1.972
+sample2 mean:  4.996
+sample1 stdev:  1.32257929819
+sample2 stdev:  1.60249305771
+
+drillstats(sample10, sample20)
+sample1 mean:  2.0
+sample2 mean:  4.6
+sample1 stdev:  1.22474487139
+sample2 stdev:  1.35646599663
+
+plt.hist(sample1, alpha=0.5, label='Sample 1')
+plt.hist(sample2, alpha=0.5, label='Sample 2')
+plt.legend(loc='upper right')
+plt.show()
+
+plt.hist(sample1000, alpha=0.5, label='Sample 1000')
+plt.hist(sample2000, alpha=0.5, label='Sample2 1000')
+plt.legend(loc='upper right')
+plt.show()
+
+plt.hist(sample10, alpha=0.5, label='Sample 20')
+plt.hist(sample20, alpha=0.5, label='Sample2 20')
+plt.legend(loc='upper right')
+plt.show()
+
+The mean of the 20-count sample is slightly more off from the expected mean than the other groups. However, I did not anticipate the standard deviation being smaller, as I assumed it would become larger.
+
+
+pop1 = np.random.binomial(10, 0.3, 10000)
+sample1new = np.random.choice(pop1, 100, replace=True)
+samplenew1000 = np.random.choice(pop1, 1000, replace=True)
+samplenew10 = np.random.choice(pop1, 20, replace=True)
+
+from scipy.stats import ttest_ind
+print(ttest_ind(sample1new, sample1, equal_var=False))
+- Ttest_indResult(statistic=5.4481127107034997, pvalue=1.5785578852780109e-07)
+
+
+pop1 = np.random.binomial(10, 0.4, 10000)
+sample1new = np.random.choice(pop1, 100, replace=True)
+samplenew1000 = np.random.choice(pop1, 1000, replace=True)
+samplenew10 = np.random.choice(pop1, 20, replace=True)
+print(ttest_ind(sample1new, sample1, equal_var=False))
+- Ttest_indResult(statistic=8.2031905213229592, pvalue=4.2625976648851432e-14)
+
+As the probability value of one population moves farther away from the other, the t-value of the sample increases, indicating that the difference between the two samples is real, and not due to any variability in the population (which is of course, self-evident as a variable in the population is being changed by me).
+
+
+pop_logn = np.random.lognormal(0, 2, 10000)
+samplelogn = np.random.choice(pop_logn, 100, replace=True)
+plt.hist(samplelogn)
+plt.show
+
+Sample mean values can still accurately reprsent the population values for any distribution, given a large enough sample size for the distribution.
