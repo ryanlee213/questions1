@@ -1,0 +1,16 @@
+Drill
+Find possible shortcomings of the data sources to answer the given quesiton. 
+What could be done to either adjust the analysis or reframe the question so that you can answer it accurately?
+
+Data Source: Amsterdam availability data scraped from AirBnB on Dec. 24. 
+Quesiton: What are the popular neighborhoods in Amsterdam?
+- The data is collected on Dec. 24, or Christmas Eve. As part of the biggest holiday, there is going to be data that does not fit the norm. A better question could ask, are there more or less availabilities/occupants during the holidays? 
+
+Data Source: Mental health services use on Sept.12, 2001 in SF, CA and NY, NY. 
+Question: How do patterns of mental health service use vary between cities?
+- The data is collected during an extreme act in New York, meaning that the data collected from New York can be expected to be a little more extreme as well. If there is no data collected during a more normal time in New York to compare with, then the scope of the hypothesis is limited to comparing the aftermath/fallout of a city that is directly and indirectly affected by 9/11. 
+
+Data Source: Armenian Pub Survey 
+Question: What are the most common reasons Armenians visit local pubs?
+- I did not catch it. Apparently they are all university students, therefore the scope of questions is restricted to Armenian university students visiting pubs.
+
