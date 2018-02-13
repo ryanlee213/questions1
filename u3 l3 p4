@@ -1,0 +1,49 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+%matplotlib inline
+
+def chart_lines(sample):
+    plt.hist(sample)
+    # Add vertical line at mean
+    plt.axvline(sample.mean(), color='r', linestyle='solid', linewidth=2)
+
+    # Add vertical line one standard deviation above
+    plt.axvline(sample.mean() + sample.std(), color='r', linestyle='dashed', linewidth=2)
+
+    # Add vertical line one standard deviation below
+    plt.axvline(sample.mean() - sample.std(), color='r', linestyle='dashed', linewidth=2)
+    
+    plt.show()
+    
+logn = np.random.lognormal(size=1000)
+chart_lines(logn)
+expo = np.random.exponential(3.0, size=1000)
+chart_lines(expo)
+parrot = np.random.pareto(5, 1000)
+chart_lines(parrot)
+chisq = np.random.chisquare(3, 1000)
+chart_lines(chisq)
+norm = np.random.normal(0, 10, 1000)
+chart_lines(norm)
+logser = np.random.logseries(.5, 1000)
+chart_lines(logser)
+
+The majority of the distributions I selected have a slope similar to a lognormal. Statistical information derived from these distributions, including mean and standard deviation, seem to provide little additional information. 
+In certain cases, the y-axis of the graph had to be shifted in order to properly display the standard deviation line. 
+
+What these graphs have in common is the "80-20 rule" of Pareto distributions, where the majority of the observations are grouped together under one or two elements.
+
+norm1 = np.random.normal(5, 0.5, 1000)
+norm2 = np.random.normal(10, 1, 1000)
+norm3 = norm1 + norm2
+chart_lines(norm3)
+
+
+print(np.mean(norm3))
+print(np.mean(norm3) + np.std(norm3))
+print(np.mean(norm3) - np.std(norm3))
+
+15.0361265693
+16.1571299205
+13.9151232181
