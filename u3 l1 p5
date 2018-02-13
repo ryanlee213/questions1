@@ -1,0 +1,91 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+brady_kids = pd.DataFrame()
+
+brady_kids['Name'] = ['Greg', 'Marcia', 'Peter', 'Jan', 'Bobby', 'Cindy', 'Oliver']
+brady_kids['Age'] = [14, 12, 11, 10, 8, 6, 8]
+a = [14, 12, 11, 10, 8, 6, 8]
+
+def modes(array):
+    mode = []
+    (values, counts) = np.unique(array, return_counts=True)
+    highest = max(counts)
+    if highest != min(counts):
+        mode = [values[i] for i in range(len(counts)) if counts[i] == highest]
+
+    return mode
+
+brady_kids.describe()
+
+def basicstats(brady):
+    print('mean: ', np.mean(brady))
+    print('median: ', np.median(brady))
+    print('mode: ', modes(brady))
+    print('variance: ', np.var(brady), brady.var())
+    print('standard deviation :', np.std(brady), brady.std())
+    print('standard error :', np.std(brady) / np.sqrt(len(brady)-1))
+
+
+basicstats(brady_kids['Age'])
+
+
+mean:  9.857142857142858
+median:  10.0
+mode:  [8]
+variance:  6.408163265306122 7.476190476190475
+standard deviation : 2.531435020952764 2.734262327610589
+standard error : 1.03345401972
+2a. Given that there are no outliers (14 < 1.5 UQR & 6 > 1.5 LQR), I would normally choose the Mean as my one estimate of central tendency, as the Mean would provide a more accurate measure. However, if someone asked me what the average age of the Brady kids are, I think I would be far more likely to answer 10 than 9.857. Still, the mean does still show which "side" of 10 the average is at.
+
+After much back-and-forth, I will go with the Mean.
+
+2b. For an estimate of variability, I will have to go with Standard Deviation, as it is generally favored over Variance in explaining variability in data.
+
+
+brady_kids.at[5, 'Age'] += 1
+brady_kids
+Name	Age
+0	Greg	14
+1	Marcia	12
+2	Peter	11
+3	Jan	10
+4	Bobby	8
+5	Cindy	7
+6	Oliver	8
+
+basicstats(brady_kids['Age'])
+mean:  10.0
+median:  10.0
+mode:  [8]
+variance:  5.428571428571429 6.333333333333333
+standard deviation : 2.32992949004287 2.516611478423583
+standard error : 0.951189731211
+3 - The mean increased from 9.857 to 10. Because this increase in value was from Cindy, whose age is below the average, this brings the dataset closer together and results in all of the variability estimates decreasing.
+
+I think that the mean and standard deviation would remain my choice of estimates to use.
+
+
+brady_kids.at[6] = "Jessica", 1
+brady_kids
+Name	Age
+0	Greg	14
+1	Marcia	12
+2	Peter	11
+3	Jan	10
+4	Bobby	8
+5	Cindy	7
+6	Jessica	1
+
+basicstats(brady_kids['Age'])
+mean:  9.0
+median:  10.0
+mode:  []
+variance:  15.428571428571429 18.0
+standard deviation : 3.927922024247863 4.242640687119285
+standard error : 1.60356745147
+4 - This does not change my choice of central tendency of variance estimation methods; I still believe the mean and the standard deviation are the best choices.
+
+5 - Based on the numbers, I would say 20% of TV Guide readers are fans, 23% of Entertainment Weekly readers are fans, 17% of Pop Culture Today readers, and 5% of the SciPhi Phanatic fans.
+Considering only these magazine readers were asked to take part in the vote/survey, the numbers derived cannot be used to make estimates of the entire adult American population.
