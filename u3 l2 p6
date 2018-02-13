@@ -1,0 +1,16 @@
+Drill
+a test for Thripshaw's Disease has a 98% probability of giving a positive result when applied to a person suffering from the disease; 10% probability of giving a (false) positive when given to a non-sufferer
+0.5% of the population are sufferers
+a test is administered to a person whose disease status is unknown. 
+
+Calculate the probability that the test will:
+
+Be positive
+Correctly diagnose a sufferer of Thripshaw's
+Correctly identify a non-sufferer of Thripshaw's
+Misclassify the person
+
+98%  ∗∗  0.5% + 10%  ∗∗  99.5% = .49 + 9.95 = 10.44%
+98%
+90%
+2%  ∗∗  0.5% + 10.0%  ∗∗  99.5% = .0996%
